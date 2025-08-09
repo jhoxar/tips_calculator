@@ -8,7 +8,7 @@ import TipPercentageForm from './components/TipPercentageForm';
 function App() {
   console.log(menuItems);
 
-  const {order, addItem, removeItem} = useOrder()
+  const {order, tip, setTip, addItem, removeItem} = useOrder()
 
   return (
 
@@ -36,8 +36,12 @@ function App() {
           {/* Resumen de la orden */}
           <section className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 space-y-10">
             <OrderContent order={order} removeItem={removeItem} />
-            <TipPercentageForm />
-            <OrderTotal order={order} />
+            <TipPercentageForm 
+            setTip = {setTip}
+            />
+            <OrderTotal 
+            order={order}
+            tip = {tip} />
           </section>
         </main>
 </>

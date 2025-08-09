@@ -16,7 +16,11 @@ const tipOptions = [
   },
 ]
 
-export default function TipPercentageForm() {
+type TipPercentageFormProps = {
+  setTip: React.Dispatch<React.SetStateAction<number>>
+}
+
+export default function TipPercentageForm({setTip}: TipPercentageFormProps) {
   return (
 
     <div className="mt-8">
@@ -36,6 +40,7 @@ export default function TipPercentageForm() {
                     name="tip"
                     value={tip.value}
                     className="accent-indigo-500 w-5 h-5 transition duration-200"
+                    onChange={e => setTip(+e.target.value)}
                     />
                     <span className="text-gray-800 font-medium select-none">{tip.label}</span>
                 </label>
