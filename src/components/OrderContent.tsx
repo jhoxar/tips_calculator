@@ -13,9 +13,7 @@ export default function OrderContent({order , removeItem}: OrderContentProps) {
   <h2 className="font-black text-4xl text-gray-800">Consumo</h2>
 
   <div className="space-y-4 mt-6">
-    {order.length === 0 ? (
-      <p className="text-center text-gray-500 text-lg">La orden está vacía</p>
-    ) : (
+    {
       order.map((item) => (
         <div
           key={item.id}
@@ -31,7 +29,7 @@ export default function OrderContent({order , removeItem}: OrderContentProps) {
           </div>
 
           <button
-            className="bg-red-500 hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-sm transition-colors duration-200"
+            className="bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-sm transition-colors duration-200"
             onClick={() => removeItem(item.id)}
             aria-label="Eliminar"
           >
@@ -39,7 +37,7 @@ export default function OrderContent({order , removeItem}: OrderContentProps) {
           </button>
         </div>
       ))
-    )}
+    }
   </div>
 </div>
 

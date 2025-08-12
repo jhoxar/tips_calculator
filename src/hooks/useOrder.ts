@@ -29,6 +29,11 @@ export default function useOrder(){
         setOrder(order.filter(item  => item.id !== id))
         
     }
+
+    const placeOrder = ()=>{
+        setOrder([])
+        setTip(0)
+    }
     
     
 
@@ -41,6 +46,7 @@ export default function useOrder(){
         tip,
         setTip,
         addItem, 
-        removeItem
+        removeItem, 
+        placeOrder
     }
 }

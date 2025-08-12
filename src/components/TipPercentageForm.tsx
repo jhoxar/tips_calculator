@@ -17,10 +17,12 @@ const tipOptions = [
 ]
 
 type TipPercentageFormProps = {
-  setTip: React.Dispatch<React.SetStateAction<number>>
+  setTip: React.Dispatch<React.SetStateAction<number>>,
+  tip: number
+  
 }
 
-export default function TipPercentageForm({setTip}: TipPercentageFormProps) {
+export default function TipPercentageForm({setTip, tip}: TipPercentageFormProps) {
   return (
 
     <div className="mt-8">
@@ -28,21 +30,22 @@ export default function TipPercentageForm({setTip}: TipPercentageFormProps) {
             Propina
         </h3>
             <form className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                {tipOptions.map((tip) => (
+                {tipOptions.map((tipOption) => (
                 <label
-                    key={tip.id}
-                    htmlFor={tip.id}
+                    key={tipOption.id}
+                    htmlFor={tipOption.id}
                     className="flex items-center gap-4 px-5 py-4 rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-indigo-500 hover:bg-indigo-50 cursor-pointer"
                 >
                     <input
-                    id={tip.id}
+                    id={tipOption.id}
                     type="radio"
                     name="tip"
-                    value={tip.value}
+                    value={tipOption.value}
                     className="accent-indigo-500 w-5 h-5 transition duration-200"
                     onChange={e => setTip(+e.target.value)}
+                    checked ={tipOption.value === tip}
                     />
-                    <span className="text-gray-800 font-medium select-none">{tip.label}</span>
+                    <span className="text-gray-800 font-medium select-none">{tipOption.label}</span>
                 </label>
                 ))}
             </form>
